@@ -1,0 +1,51 @@
+{
+  "name": "wonder-bs-mysql2",
+  "version": "0.1.0",
+  "description": "ReasonML bindings to the mysql2 library.",
+  "scripts": {
+    "examples:simple": "node examples/simple.bs.js",
+    "examples:promise": "node examples/promise.bs.js",
+    "examples:prepared-statements": "node examples/prepared_statements.bs.js",
+    "examples:with-params": "node examples/with_params.bs.js",
+    "build": "bsb -make-world",
+    "clean": "bsb -clean-world",
+    "coverage": "nyc report --temp-directory=coverage --reporter=text-lcov | coveralls",
+    "format": "yarn bsrefmt --in-place",
+    "precommit": "lint-staged",
+    "start": "bsb -make-world -w",
+    "test": "jest --coverage",
+    "watch:jest": "jest --coverage --watchAll"
+  },
+  "lint-staged": {
+    "*.{re,rei}": [
+      "yarn format",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "BuckleScript",
+    "reason",
+    "reasonml",
+    "mysql",
+    "databases",
+    "node"
+  ],
+  "bugs": "https://github.com/scull7/bs-mysql2/issues",
+  "main": "src/mysql.bs.js",
+  "homepage": "https://github.com/scull7/bs-mysql2",
+  "repository": "git@github.com:scull7/bs-mysql2.git",
+  "author": "Nathan Sculli <scull7@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@glennsl/bs-json": "^2.0.0",
+    "mysql2": "^1.5.3"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.4.2",
+    "bs-platform": "^4.0.1",
+    "coveralls": "^3.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
+    "nyc": "^11.8.0"
+  }
+}
